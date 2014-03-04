@@ -69,21 +69,21 @@ As you may notice, this function can accept two arguments:
 arr			array	required	An array of arrays defining the experiment and its variations.  See Child Array below for more info.
 callback	fn		optional	The default callback function loads the string 'gcx.done' to the dataLayer.  You may define your own callback to perform additional actions if needed.
 
-Child Array  
-The arr argument expects to be passed an array of arrays.
-The structure of the child array is as follows:
-0:		string	required	Experiment Id
-1:		array	required	Experiment target page - defines the page for which this experiment is designed
-1.0:	string	required	document.location.hostname (fully qualified domain name; ex: 'subdomain.mysite.com') of the page on which the experiment should run
-1.1:	string	required	document.location.pathname (path to the page, including leading /; ex: '/contact.html') of the page on which the experiment should run
-1.2:	string	optional	document.location.search (querystring, not including ?; ex: 'key=value&anotherkey=something) of the page on which the experiment should run
-1.2:	string	optional	document.location.hash (url fragment, including #; ex: '#contact') of the page on which the experiment should run
-2:		array	required	Experiment variations - An array of anonymous functions that map _directly_ to the experiment variations
-2.0:	fn		required	An anonymous function carrying a payload that will render the original variation (typically just an empty function)
-2.1:	fn		required	An anonymous function carrying a payload that will render the FIRST variation
-2.2:	fn		optional	An anonymous function carrying a payload that will render the SECOND variation (if defined in the experiment)
-2.3:	fn		optional	An anonymous function carrying a payload that will render the THIRD variation (if defined in the experiment)
-2.4:	fn		optional	An anonymous function carrying a payload that will render the FOURTH variation (if defined in the experiment)  
+Child Array  (the formatting for the below is terrible here. check out the original.)
+The arr argument expects to be passed an array of arrays.  
+The structure of the child array is as follows:  
+0:		string	required	Experiment Id  
+1:		array	required	Experiment target page - defines the page for which this experiment is designed  
+1.0:	string	required	document.location.hostname (fully qualified domain name; ex: 'subdomain.mysite.com') of the page on which the experiment should run  
+1.1:	string	required	document.location.pathname (path to the page, including leading /; ex: '/contact.html') of the page on which the experiment should run  
+1.2:	string	optional	document.location.search (querystring, not including ?; ex: 'key=value&anotherkey=something) of the page on which the experiment should run  
+1.2:	string	optional	document.location.hash (url fragment, including #; ex: '#contact') of the page on which the experiment should run  
+2:		array	required	Experiment variations - An array of anonymous functions that map _directly_ to the experiment variations  
+2.0:	fn		required	An anonymous function carrying a payload that will render the original variation (typically just an empty function)  
+2.1:	fn		required	An anonymous function carrying a payload that will render the FIRST variation  
+2.2:	fn		optional	An anonymous function carrying a payload that will render the SECOND variation (if defined in the experiment)  
+2.3:	fn		optional	An anonymous function carrying a payload that will render the THIRD variation (if defined in the experiment)  
+2.4:	fn		optional	An anonymous function carrying a payload that will render the FOURTH variation (if defined in the experiment)    
 
 *note: if you have three total variations defined in your experiment (original and two variations), but do not include element 2.2, your second variation will never execute.
 
