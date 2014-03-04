@@ -1,7 +1,7 @@
 /*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
  *
  *  allows google content experiments (gcx) to run from within google tag manager (gtm)
- *  rule for this tag: event equals gtm.dom
+ *  rule for this tag: event equals pageLoaded
  *  rule for GA code: event equals gcx.done
  *  (c) GNUv3 tony felice - tfelice at vladimirjones dot com
  *

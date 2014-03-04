@@ -1,10 +1,26 @@
 google_tag_manager_hax
 ======================
-i totally borrowed this from http://vj-gcx.googlecode.com/svn/trunk/readme.txt so i could make some tweaks.
-
+i totally borrowed this from http://vj-gcx.googlecode.com/svn/trunk/readme.txt so i could make some tweaks.  
 
 allows google content experiments (gcx) to run from within google tag manager (gtm)
-rule for this tag: event equals gtm.dom
+
+for x-browser compat (namely IE), and to make sure stuff loads in the correct order, it's recommended to create a custom event to use as a rule for this tag instead of using gtm.dom. this tip came from an SO answer [here](http://stackoverflow.com/a/21576831).  
+
+create a custom HTML tag called `pageLoad` and use the below code:  
+
+````html
+<script type="text/javascript">
+var tid = setInterval( function () {
+    if ( document.readyState !== 'complete' ) return;
+	    clearInterval( tid );
+		    dataLayer.push({ "event": "pageLoaded" });
+			}, 100 );
+			</script>
+````
+
+add whatever firing rule suits your purposes (e.g. all pages) and same for condition (e.g. {{url}} matches RegEx .*)
+
+rule for this tag: event equals pageLoaded
 rule for GA code: event equals gcx.done
 (c) GNUv3 tony felice - tfelice at vladimirjones dot com
 
