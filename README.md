@@ -69,7 +69,7 @@ As you may notice, this function can accept two arguments:
 arr			array	required	An array of arrays defining the experiment and its variations.  See Child Array below for more info.
 callback	fn		optional	The default callback function loads the string 'gcx.done' to the dataLayer.  You may define your own callback to perform additional actions if needed.
 
-Child Array
+Child Array  
 The arr argument expects to be passed an array of arrays.
 The structure of the child array is as follows:
 0:		string	required	Experiment Id
@@ -83,7 +83,7 @@ The structure of the child array is as follows:
 2.1:	fn		required	An anonymous function carrying a payload that will render the FIRST variation
 2.2:	fn		optional	An anonymous function carrying a payload that will render the SECOND variation (if defined in the experiment)
 2.3:	fn		optional	An anonymous function carrying a payload that will render the THIRD variation (if defined in the experiment)
-2.4:	fn		optional	An anonymous function carrying a payload that will render the FOURTH variation (if defined in the experiment)
+2.4:	fn		optional	An anonymous function carrying a payload that will render the FOURTH variation (if defined in the experiment)  
 
 *note: if you have three total variations defined in your experiment (original and two variations), but do not include element 2.2, your second variation will never execute.
 
